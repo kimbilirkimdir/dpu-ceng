@@ -1,0 +1,146 @@
+//sql soruları -> doğrudan vize soruları olacak
+SQL(yapılandırılmış so)
+
+DDL
+create- nesne olusturur
+drpo- siler
+
+En Temel Kullanım Şekli:
+	
+	CREATE DATABASE veritabanı_ismi
+	ON
+	PRIMARY(NAME_ dosya_adi)
+	,FILENAME	
+	,.....
+	,....
+	,...
+	
+	
+	
+	CREATE TABLE tablo_ismi
+	....
+	...
+	..
+	.
+
+
+CONSTRAINT(ZORLAYICILAR)
+	
+	NOT NULL
+	
+	CHECK -> bir sutun içinde girilebilecek değerler için bir kısıtlama........
+	
+	DEFAULT
+	
+	UNIQUE -> benzersiz kayıt oluşturur.
+	
+	REFERANCES
+	
+CREATE ifadesi ile tablo oluşturmak FOREIGN KEY
+
+	Foreign key olarak tanımlanacak sütunun bağlı olduğu tabloda 1 tane primary key olmalı. !
+		
+		
+CREATE ifadesi ile tablo oluşturmak  UNIQUE kullanımı
+
+	UNIQUE tablo oluşturma esnasında sütun isminden sonra, sütun isimleri ve özellikleri belirlendikten sonra..........
+..
+.
+.
+
+
+
+ALTER ifadesi (DDL'den devam)(daha önceden yapılmış veritabanı nesnesinde değişiklik yapmak için)
+
+Sütun eklemek için
+
+ALTER TABLE tablo ADD sütun_adi özellikler
+
+
+Sütun silmek için
+
+ALTER TABLE tablo DROP COLUMN sütun_adı
+
+
+	
+ALTER TABLE tablo ALTER COLUMN sütun_adı ...(?)	
+	
+		
+
+foreing key ,refernces olmadan olmaz 		        	
+
+ALTER TABLE ogrenci ADD FOREIGN KEY (bolum) REFERENCES bolumler(bolum)
+
+ALTER TABLE ogrenci ADD CONSTRAINT fk_bol ADD FOREIGN KEY (bolum) REFERENCES bolumler(bolum)
+
+
+
+
+DDL 	-> CREATE
+	-> ALTER 
+	-> DROP
+
+Tablo içi nesneleri silmek için TRUNCATE
+
+DELETE kullanıldığında 45 veri varsa 45i silinir ve yeni veriler 46 dan başlar.
+
+TRUNCATE kullanıldığında 45 veri varsa 45i de silinir ve yeni veriler 1'den başlar.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DML (Data Manipulation Language)(Veri İşleme Dili)
+
+	SELECT -> veritabanındaki kayıtları seçmek için kullanılır.
+	
+	INSTERT -> veritabanındaki yeni kayıt eklemek için kullanılır.
+	
+	UPDATE -> veritabanındaki bulunan kayıtların üzerinde değişiklik yapmak için kullanılır.
+	
+	DELETE -> veritabanından kayıt silmek için kullanılır.
+
+
+SELECT sütunlar FROM tablo_adı
+
+
+* kullanılması tablonun tüm kayıtlarını getirir.
+
+bkz: SELECT * FROM tablo_adi
+
+Seçilmek istenen sütunların isimleri.........
+
+SELECT te karışıklığa karşışlık ders.ders_no gibi kull.
+ ______________
+//////ödev\\\\\\
+
+mysql de 
+oracle da
+mssql de büyük harf küçük harf farkı var mıdır ?
+Linux MySQL'de varsayılan değerdir ve büyük / küçük harf duyarsız Windows'ta varsayılan olarak kullanılır, ancak şimdi yükleyici kurulum sırasında bunu sordu. 
+MSSQL için bu, veritabanının harmanlama ayarının bir fonksiyonudur.
+
+\\\\\\\/////////
+
+//&& sınav sorusu (?) -> primary key ile unique farkı 	
+				*UNIQUE= yer aldığı tabloda sadece bir değeri sadece bir kere alır. İlgili değerin tekrarlanmasına izin vermez. En önemli özelliği NULL değeri
+				alabilmesidir.		
+				
+				
+				*PRIMARY KEY= bir veri tablosunda yer alan her satır için bir vekil / tanımlayıcı (identify) görevi görür, kısıtlamadır (constraint) ve 
+				eşsizdir. 
+				Bir tablo içerisinde birden fazla alan tek bir birincil anahtar ile tanımlanabilir. Ancak, birincil anahtar yapısı her tabloda sadece bir tane
+				olabilir. Benzersiz anahtarda ise böyle bir sınırlama yoktur.
+				
+				Birincil anahtarda NULL kullanıma izin verilmez. Acnak, benzersiz anahtarlarda NULL kayıtlara izin verilir.
+				
+				Birincil anahtar ile veri tablosu üzerinde bir INDEX tanımı oluşturulur ve her kaydın benzersiz bir tanımı yapılır. Benzersiz anahtar 		
+				kullanımında ise değerlerin benzersiz olup olmadığına bakılır. Elbette benzersiz anahtarlar da INDEX adıyla tanımlanabilirler ancak bu sadece 	
+				bir tanımlama olacaktır.
+
+				
+				*FOREIGN KEY=Foreign Key (yabancı anahtar) ikincil anahtar olarak da ifade edilmektedir. Bir veri tablosuna girilebilecek değerleri başka bir 	
+				veri tablosundaki alanlarla ilişkilendirmeye yarar. Özetle, başka bir tablonun birincil anahtarının bir diğer tablo içerisinde yer almasıdır. 	
+				Çoğunlukla bir ana tablo (parent) ile alt tablonun (child) ilişkilendirilmesinde kullanılır. Bu sayede olası veri tekrarlarının önüne 		
+				geçilebilmekte ve ilerleyen zamanda söz konusu olabilecek güncellemelerde ilgili verilerin her yerde güncellenmesi sağlanabilmektedir.
+
+		      -> ın like farkı (?)
+		      -> ALTER'den boşluk doldurma soruları gelebilir
+		      
